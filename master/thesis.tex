@@ -1,0 +1,115 @@
+%%
+%% This is file `thesis.tex',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% cnuthesis.dtx  (with options: `thesis')
+%% 
+%% This is a generated file.
+%% 
+%% Copyright (C) 2013 by Hoo Wan <imengyingchina@gmail.com>
+%% 
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3a
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in:
+%% 
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3a or later is part of all distributions of LaTeX
+%% version 2004/10/01 or later.
+%% 
+%% To produce the documentation run the original source files ending with `.dtx'
+%% through LaTeX.
+%% 
+%% Any Suggestions : Hoo Wan <imengyingchina@gmail.com>
+%% Thanks Xue Ruini <xueruini@gmail.com> for the thuthesis class!
+%% Thanks sofoot for the original SCNUThesis,NUDT paper class!
+%% 
+
+%1. 如果是研究生论文，常用的选项是：
+% \documentclass[master,twoside,ttf]{cnuthesis}
+%2. 如果是博士生论文，常用的选项是：
+% \documentclass[doctor,twoside,ttf]{cnuthesis}
+%3. 如果使用是Vista、Windows 7或者使用从Vista或Windows 7拷贝过来的字体，则需要再加一个Vista选项，如：
+% \documentclass[master,twoside,ttf,vista]{cnuthesis}
+%4. 建议使用OTF字体获得较好的页面显示效果
+%   OTF字体从网上获得，各个系统名称统一，不用加vista选项
+%   如果你下载的是最新的(1201)OTF英文字体，建议修改cnuthesis.cls，使用PS Std
+%   \documentclass[doctor,twoside,otf]{cnuthesis}
+%5. 如果想生成盲评，传递anon即可，仍需修改个人成果部分
+% \documentclass[master,otf,anon]{cnuthesis}
+%
+\documentclass[master,twoside,ttf]{cnuthesis}
+\usepackage{mycnu}
+
+
+\begin{document}
+\graphicspath{{figures/}}
+\classification{G43}
+\university{10028}
+\confidentiality{无}
+\serialno{2037508007}
+\title{首都师范大学硕士/博士\\
+  学位论文\LaTeX{}模板使用手册}
+\displaytitle{首都师范大学硕士/博士学位论文\LaTeX{}模板示例}
+\author{郭 靖}
+\subject{现代教育技术}
+\researchfield{现代教育技术}
+\school{教育学院}
+\supervisor{潘 克 明}
+\zhdate{2006 年 12 月 3 日}
+% 插入摘要，制作封面
+\pdfbookmark[1]{封面}{titlepage}
+\ifisanon{}\else{\maketitle}\fi
+
+\frontmatter
+
+\input{data/abstract}
+% 生成目录
+{
+\cleardoublepage\pagenumbering{Roman}
+\pdfbookmark[1]{目录}{tableofcontents}
+\tableofcontents
+}
+{
+\cleardoublepage\pagenumbering{Roman}
+\pdfbookmark[1]{图目录}{listoffigures}
+\listoffigures
+}
+{
+\cleardoublepage\pagenumbering{Roman}
+\pdfbookmark[1]{表目录}{listoftables}
+\listoftables
+}
+
+{\cleardoublepage\pagenumbering{Roman}
+\input{data/denotation} % 如果要生成符号列表
+}
+
+\mainmatter
+\pagestyle{mpage}
+\input{data/chap01}
+\input{data/chap02}
+\input{data/chap03}
+
+\cleardoublepage
+\bibliographystyle{bstutf8}
+\bibliography{ref/refs}
+
+\appendix
+\backmatter
+
+\input{data/appendix01}
+\input{data/appendix02}
+
+\cleardoublepage
+\input{data/ack}
+
+\cleardoublepage
+\input{data/resume}
+
+\end{document}
+
+%%
