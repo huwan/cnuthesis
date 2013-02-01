@@ -22,12 +22,20 @@
 \ProvidesFile{cnuthesis.dtx}[2013/02/01 v0.5.7 CNUThesis]
 \documentclass[11pt]{ltxdoc}
 \usepackage{cnux}
+\usepackage{enumerate}
 \EnableCrossrefs
 \CodelineIndex
 \RecordChanges
 \graphicspath{{figures/}}
+
+\def\glossaryname{版本历史}
+\GlossaryPrologue{%
+  \addtocounter{secnumdepth}{-10}%
+  \section{\glossaryname}}
+
 \begin{document}
   \DocInput{\jobname.dtx}
+ \PrintChanges
 \end{document}
 %</driver>
 % \fi
@@ -35,9 +43,12 @@
 % \def\thuthesis{\textsc{Thu}\-\textsc{Thesis}}
 % \def\nudtpaper{\textsc{Nudt}\textsc{Paper}}
 % \def\scnuthesis{\textsc{SCNU}\-\textsc{Thesis}}  
-% \def\cnuthesis{\textsc{CNU}\-\textsc{Thesis}}  
+% %\def\cnuthesis{\textsc{CNU}\textsc{Thesis}}  
+% \def\cnuthesis{%
+%  C\hspace{-0.3ex}\raisebox{-0.5ex}{N}\hspace{-0.3ex}U\textsc{Thesis}
+%} 
 %
-% \CheckSum{1062}
+% \CheckSum{0}
 %
 % \CharacterTable
 %  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
@@ -73,15 +84,10 @@
 % \DoNotIndex{\@@par,\DeclareOperation,\RequirePackage,\LoadClass}
 % \DoNotIndex{\AtBeginDocument,\AtEndDocument}
 %
-% \IndexPrologue{\section*{索引}%
-%    \addcontentsline{toc}{section}{索~~~~引}}
-% \GlossaryPrologue{\section*{修改记录}%
-%    \addcontentsline{toc}{section}{修改记录}}
-%
 % \renewcommand{\abstractname}{摘~~要}
 % \renewcommand{\contentsname}{目~~录}
 %
-% \title{\textsc{CNUThesis:}\,\,首都师范大学学位论文\LaTeX{}模板使用手册}
+% \title{\cnuthesis{}：\,\,首都师范大学学位论文\LaTeX{}模板使用手册}
 % \author{万虎 \\ \href{mailto:imengyingchina@gmail.com}{imengyingchina@gmail.com}}
 % \date{\fileversion\ (\filedate)}
 %
@@ -121,39 +127,38 @@
 % 这部分是专门为那些想快速开始写论文的人准备的。
 % \begin{description}
 % \item[~安装\TeX~] 下载最新的\TeX{}live或者C\TeX{}并安装
-% \item[~字体~] 用户需要具备\verb|simsun.ttf（宋体）|, \verb|simhei.ttf（黑体）|, \verb|simkai.ttf（楷体）|,\verb|LiSu.ttf（隶书）|,\verb|STXinwei.ttf（华文新魏）|,\verb|STZhongsong.ttf（华文中宋）|,
+% \item[~字体~] 用户需要具备\verb|simsun.ttf（宋体）|, \verb|simhei.ttf（黑体）|, \verb|simkai.ttf（楷体）|,\verb|simli.ttf（隶书）|,\verb|STXinwei.ttf（华文新魏）|,\verb|STZhongsong.ttf（华文中宋）|,
 % 上述字体一般可以在Windows系统中找到; 除此之外，在网上下载(或者C\TeX{}
 % 论坛) ``Adobe Opentype 中文字体''，确保下载下来Adobe的四款OTF字体:
-% 宋，黑，仿宋，楷体。Linux用户可将上述字体复制到\verb|/usr/share/fonts/TTF|下。
+% 宋，黑，仿宋，楷体。
 % \item[~试一试~] 解压缩下载的模板，双击makepdf.bat，如果生成了
 % \verb|thesis.pdf|$\rightarrow$
 % \item[~开始写了~] 所有文件均采用UTF8编码，因此要保证你的\TeX{}编辑器
 % (winedt, texworks, texmaker, vim, 记事本($\cdots{}$)等)支持这种编码，
-% (经过一番搜索设置后)打开\verb|thesis.tex|，如果看到的是中文$\rightarrow$
+% 打开\verb|thesis.tex|，如果看到的是中文$\rightarrow$
 % \item[~漫长的写作~] 手边准备着\LaTeX{}的常用帮助文档(数学，图表，引用等),
 % 结合你喜欢的文献管理软件(JabRef等), 漫长的\texttt{编辑，编译，修改，编辑，
 % 编译$\cdots$}过程之后，你终于写完了$\rightarrow$
-% \item[~校订~] 经过老师师兄师弟师妹齐心协力校正之后，你所做的只是:
-% 装订，上交$\rightarrow$
+% \item[~校订~] 经过老师师兄师姐师弟师妹齐心协力校正之后，你所做的只是:
+% 装订，上交。
 % \end{description}
-% {\color{magenta} Done!}
 %
 % \section{模板介绍}
 %
-% \textsc{CNUThesis} 旨在帮助并且推广\LaTeX{}在首都师范大学论文中的应用，
-% 本文将尽可能帮助用户掌握\textsc{CNUThesis}的安装方法，
+% \cnuthesis 旨在帮助并且推广\LaTeX{}在首都师范大学论文中的应用，
+% 本文将尽可能帮助用户掌握\cnuthesis的安装方法，
 % 如果仍旧有不清晰的地方可以参考样例文件或者
-% 给作者发邮件\footnote{作者邮箱：\href{mailto:imengyingchina@gmail.com}{imengyingchina@gmail.com}}，感兴趣的同学可以帮忙维护模板。
-% 该模板是在华南师范大学的SCNUThesis
-% \footnote{主页：\url{https://code.google.com/p/scnuthesis/}}
-%的基础上完成的，仅修改了封面、页脚等使之符合学校的论文要求。
-% 在制作模板的过程中也参考了国防科技大学的NUDTpaper、清华的Thuthesis、中科院计算所、中国科学技术大学等学校的硕博论文模板，一并表示感谢。
+% 给作者发邮件\footnote{邮箱：\href{mailto:imengyingchina@gmail.com}{imengyingchina@gmail.com}}。希望您可以及时提交在使用的过程中遇到的bug\footnote{反馈：\href{https://github.com/mengyingchina/cnuthesis/issues}{https://github.com/mengyingchina/cnuthesis/issues}}  。
+% 该模板是在华南师范大学的学位论文模板SCNUThesis
+% \footnote{主页：\href{https://code.google.com/p/scnuthesis/}{https://code.google.com/p/scnuthesis/}}
+%v0.5.6的基础上完成的，修改了封面、页脚等使之符合学校的论文要求。(同时，为便于以后维护，本模板版本号直接从v0.5.7开始)。
+% 在制作模板的过程中也参考了国防科技大学的NUDTpaper、清华的Thuthesis、中科院计算所ICTthesis、中国科学技术大学USTCthesis等硕博论文模板，一并表示感谢。
 %
 % \section{安装}
 % \label{sec:install}
 %
 % \subsection{下载}
-% \textsc{CNUThesis} 主页：\url{https://github.com/mengyingchina/cnuthesis}
+% \cnuthesis 主页：\url{https://github.com/mengyingchina/cnuthesis}
 %
 % \subsection{模板的组成部分}
 % 下表列出了 \cnuthesis{} 的主要文件及其功能介绍：
@@ -191,12 +196,11 @@
 %   \end{longtable}
 % \end{center}
 % 需要说明几点：
-%\begin{enumerate}
+%\begin{enumerate}[1)]
 %\item cnuthesis.ins 和 cnuthesis.dtx 是模板的源代码文件，不是编译
 % 论文必须的文件，供有需要定制这个模板的高级用户使用。
-%\item cnuthesis.cls 和 cnuthesis.cfg 由 cnuthesis.ins 和 cnuthesis.dtx 生成，但为了降低新手用户的使用难度，在basic版中已直接给出。
+%\item cnuthesis.cls 和 cnuthesis.cfg 由 cnuthesis.ins 和 cnuthesis.dtx 生成，但为了降低新手用户的使用难度，已直接给出。
 %\item 学习使用模板的最好的办法就修改示例文件\emph{thesis.tex}。
-%
 %\end{enumerate}
 %
 % \subsection{准备工作}
@@ -383,13 +387,13 @@
 \confidentiality{无}
 \serialno{2037508007}
 \title{首都师范大学硕士/博士\\
-  学位论文\LaTeX{}模板使用手册}
-\displaytitle{首都师范大学硕士/博士学位论文\LaTeX{}模板示例}
-\author{郭 靖}
+  学位论文\LaTeX{}模板示例文档}
+\displaytitle{首都师范大学硕士/博士学位论文\LaTeX{}模板示例文档}
+\author{郭\ 靖}
 \subject{现代教育技术}
 \researchfield{现代教育技术}
 \school{教育学院}
-\supervisor{潘 克 明}
+\supervisor{潘\ 克\ 明}
 %\zhdate{\zhtoday}
 \zhdate{2006 年 12 月 3 日}
 %\entitle{How to Use the \LaTeX{} Document Class for CNU Dissertations}
@@ -463,6 +467,7 @@
 }
 
 {\cleardoublepage\pagenumbering{Roman}
+\pdfbookmark[1]{符号列表}{denotation}
 \input{data/denotation} % 如果要生成符号列表
 }
 %</thesis>
@@ -878,7 +883,10 @@
 \def\thuthesis{\textsc{Thu}-\textsc{Thesis}}
 \def\nudtpaper{\textsc{Nudt}\textsc{Paper}}
 \def\scnuthesis{\textsc{SCNU}\textsc{Thesis}}  
-\def\cnuthesis{\textsc{CNU}\textsc{Thesis}}  
+%\def\cnuthesis{\textsc{CNU}\textsc{Thesis}}  
+\def\cnuthesis{%
+  C\hspace{-0.3ex}\raisebox{-0.5ex}{N}\hspace{-0.3ex}U\textsc{Thesis}
+} 
 \newcommand{\pozhehao}{\kern0.3ex\rule[0.8ex]{2em}{0.1ex}\kern0.3ex}
 %</cls>
 %    \end{macrocode}
@@ -1343,7 +1351,7 @@
   \if@openright\cleardoublepage\else\clearpage\fi
   \thispagestyle{emptypage}
   \chapter*{\denotationname} % no tocline
-  \addcontentsline{toc}{chapter}{\denotationname}%
+  %\addcontentsline{toc}{chapter}{\denotationname}%符合列表不加入目录
   \noindent\begin{list}{}%
     {\vskip-30bp\xiaosi[1.6]
       \renewcommand\makelabel[1]{##1\hfil}
@@ -1599,7 +1607,5 @@
 }
 %</cls>
 %    \end{macrocode}
-%
 % \Finale
-%
 \endinput

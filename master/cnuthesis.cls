@@ -168,7 +168,9 @@
 \def\thuthesis{\textsc{Thu}-\textsc{Thesis}}
 \def\nudtpaper{\textsc{Nudt}\textsc{Paper}}
 \def\scnuthesis{\textsc{SCNU}\textsc{Thesis}}
-\def\cnuthesis{\textsc{CNU}\textsc{Thesis}}
+\def\cnuthesis{%
+  C\hspace{-0.3ex}\raisebox{-0.5ex}{N}\hspace{-0.3ex}U\textsc{Thesis}
+}
 \newcommand{\pozhehao}{\kern0.3ex\rule[0.8ex]{2em}{0.1ex}\kern0.3ex}
 \renewcommand\contentsname{目\hspace{1em}录}
 \renewcommand\listfigurename{图\hspace{1em}目\hspace{1em}录}
@@ -383,7 +385,7 @@
   \if@openright\cleardoublepage\else\clearpage\fi
   \thispagestyle{emptypage}
   \chapter*{\denotationname} % no tocline
-  \addcontentsline{toc}{chapter}{\denotationname}%
+  %\addcontentsline{toc}{chapter}{\denotationname}%符合列表不加入目录
   \noindent\begin{list}{}%
     {\vskip-30bp\xiaosi[1.6]
       \renewcommand\makelabel[1]{##1\hfil}
