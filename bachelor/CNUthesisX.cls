@@ -297,11 +297,14 @@
 %%的“长划线”。（PS：模版中未给示例）
 %%Ⅴ.院(系)、专业等距左端空 7 格，但模版中却要求居中放置。
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \def\classification#1{\def\@classification{#1}} % 中图分类号/论文编码
+\newcommand*{\titletail}[1]{\gdef\@titletail{#1}}
 \newcommand*{\tutor}[1]{\gdef\@tutor{#1}}
 \newcommand*{\titles}[1]{\gdef\@titles{#1}}%%职称
 \newcommand*{\entitle}[1]{\gdef\@entitle{#1}}
 \newcommand*{\cntime}[1]{\gdef\@cntime{#1}}
+\global\let\@titletail\@empty
 \global\let\@entitle\@empty
 \global\let\@tutor\@empty
 \global\let\@titles\@empty
@@ -340,7 +343,9 @@
 	本科生毕业论文（设计）\hfil}}%
 	\par
 	\vskip0.78in
-	{\zihao{-1}\cusong\@title\ifx\@subtitle\@empty\else{\vskip.5em\xiaoerhao\cusong\pozhehao\@subtitle}\fi}
+	{\zihao{-1}\cusong\@title
+		\ifx\@titletail\@empty\else{\par\@titletail}\fi
+		\ifx\@subtitle\@empty\else{\vskip.5em\xiaoerhao\cusong\pozhehao\@subtitle}\fi}
     \par
 	\vskip0.07in
     {{\begin{spacing}{1.20}\spaceskip.5em\zihao{-1}\bfseries\@entitle
@@ -351,7 +356,7 @@
 		\vskip1.0in
       {
       \renewcommand\arraystretch{1.15}
-		\sanhao\cusong%\hspace*{7em}如果要按照格式要求昨天空七格，则把居中环境去掉，换成这个
+		\sanhao\cusong%\hspace*{7em}如果要按照格式要求左边空七格，则把居中环境去掉，换成这个
        \begin{tabular}[t]{cl}%
 {院\hspace*{2em}系}&\underline{\makebox[10.5em][c]{\@department}}\tabularnewline
 		{专\hspace*{2em}业}&\underline{\makebox[10.5em][c]{\@major}}\tabularnewline

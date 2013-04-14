@@ -1,4 +1,4 @@
-﻿
+
 \chapter{使用说明}
 
 \section{系统需求}
@@ -28,11 +28,14 @@
 \item \verb|\classification{}|\\
 论文编码。教务处的格式要求和模版中均为提到论文编码具体是什么，感觉像分类号，如G43，TP312。
 \item \verb|\title{}|\\
-	论文中文标题。标题可以很长，会自动换行，如果你觉得换行位置不合适，可以手动在需要换行的地方添加\verb|\\|。
+	论文中文标题。标题可以很长，会自动换行，如果你觉得换行位置不合适，使用下面的\verb|\titletail{}|。
+\item \verb|\titletail{}|\\
+	论文中文标题手动换行后半部分。将长标题从想换行的地方分开填写在\verb|\title{}|和\\
+\verb|\titletail{}|中。
 \item \verb|\subtitle{}|\\
 	论文副标题。如果没有，可以留空。
 \item \verb|\entitle{}|\\
-	论文英文标题。
+	论文英文标题。标题可以很长，会自动换行，如果你觉得换行位置不合适，可以直接手动在需要换行的地方添加\verb|\\|。
 \item \verb|\ensubtitle{}|\\
 	论文英文副标题。如果没有，可以留空。
 \item \verb|\cntime{}|\\
