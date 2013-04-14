@@ -1,0 +1,74 @@
+\documentclass[twoside,typesetinfo,openany]{CNUthesisX}%twoside/oneside/openany/openright
+\usepackage{CNUthesisX}
+
+% 设置图形文件的搜索路径
+\graphicspath{{chapter/}{figures/}}
+% 取消链接的颜色（黑白打印时）
+\hypersetup{colorlinks=false}
+
+\definecolor{bkcolor1}{gray}{0.95}
+\definecolor{bkcolor2}{gray}{0.85}
+\newcommand{\bkcommand}[1]{\colorbox{bkcolor1}{$\mathtt{\backslash}$\texttt{#1}}}
+\newcommand{\textgraph}[1]{\raisebox{-1ex}{\includegraphics[width=1.5em]{#1}}}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % 中文封面内容及承诺书信息请在CNUthesisX.cfg文件中填写
+
+  % 扉页形式
+  \maketitle
+  % 授权页
+  \makeauthorization
+
+
+%\iffalse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+% 摘要
+  \include{chapter/abstract}
+% 目录
+  \tableofcontents
+  \listoffigures
+  \listoftables
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+\include{chapter/introduction}
+\include{chapter/usage}
+\include{chapter/version}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附录部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+  %%参考文献
+  %%使用 BibTeX
+  
+  \phantomsection
+  \addcontentsline{toc}{chapter}{参考文献}
+  \bibliography{bib/tex}
+  \nocite{*} % for every item
+	\cleardoublepage
+  % 附录
+	\appendix
+		\phantomsection
+		\makeatletter
+		\renewcommand\ext@figure{laf}
+		\renewcommand\ext@table{lat}
+		\makeatother
+		\newpage
+		\include{chapter/appendix}
+	\cleardoublepage
+  % 致谢
+  \include{chapter/thanks}
+  
+%\fi
+
+
+\end{document}

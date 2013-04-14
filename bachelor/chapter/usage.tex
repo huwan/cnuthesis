@@ -1,0 +1,254 @@
+﻿
+\chapter{使用说明}
+
+\section{系统需求}
+
+\texttt{CNUthesisX}~基于~C\TeX~实现，所以用户的~\TeX~系统中需
+要安装~C\TeX~宏包\footnote{C\TeX~宏包可以从~\url{www.ctex.org}~免
+费得到。如果用户使用的~\TeX~系统是~C\TeX~中文套装，则系统已
+经缺省安装了~C\TeX~宏包。C\TeX~中文套装也可
+从~\url{www.ctex.org}~免费下载。}。此外，本文默认用户使用 Windows 环境下 CTEX 中文套装（最新、完整版），模版未在Linux环境下测试，可能存在编码错误、缺少字体等问题，但解决起来应该并不困难，请使用Linux 操作系统的同学自己耐心设置一下。
+
+此模板只支持 UTF-8 编码。如果你下载宏包后发现WinEdt 无法正常打开宏包目录下的~\TeX~文件，或者打开后中文乱码，很大的可能就是编码格式的问题。
+
+将其他编码的文件转化为 UTF-8 的方法是: 用记事本打
+开这些文件, 然后点击 文件—另存为—在最下方选择 UTF-8 编码。在 WinEdt 中首次保存
+时，选择 save as...，弹出的窗口中保存类型选择:UTF-8 即可。或者安装NOtepad++文本编辑器，选择 格式-转换为UTF-8 编码。
+
+
+
+\section{宏包配置}
+\label{section:cfg}
+
+\texttt{CNUthesisX}~宏包的配置信息用于自动生成学位论文的封面、
+原创性承诺书等，保存在文件\texttt{CNUthesisX.cfg}中，需要由用户在使用宏
+包前进行填写。配置信息共分为四个部分：论文信息；作者信息；导师信息；承诺书信息。
+\subsection{论文信息}
+\begin{itemize}
+\item \verb|\classification{}|\\
+论文编码。教务处的格式要求和模版中均为提到论文编码具体是什么，感觉像分类号，如G43，TP312。
+\item \verb|\title{}|\\
+	论文中文标题。标题可以很长，会自动换行，如果你觉得换行位置不合适，可以手动在需要换行的地方添加\verb|\\|。
+\item \verb|\subtitle{}|\\
+	论文副标题。如果没有，可以留空。
+\item \verb|\entitle{}|\\
+	论文英文标题。
+\item \verb|\ensubtitle{}|\\
+	论文英文副标题。如果没有，可以留空。
+\item \verb|\cntime{}|\\
+	论文完成日期,如~二〇一三年四月。
+\end{itemize}
+\subsection{作者信息}
+\begin{itemize}
+\item \verb|\author{}|\\
+	姓名。如果姓名为两个字，建议在名字中间添加一个\verb|\quad |来空一格。注意\verb|\quad |后添加一个空格和姓名第二个字隔开。
+\item \verb|\No{}|\\
+	学号。
+\item \verb|\department{}|\\
+	院系名称。
+\item \verb|\major{}|\\
+	专业名称。如果专业名称超过10个汉字，可能会超出下划线的长度，需要你手动找到本模版CLS文件中封面部分改动一下。
+\item \verb|\grade{}|\\
+	年级,如2009级。应该不会有人写成四年级吧~:)。
+\end{itemize}
+\subsection{作者信息}
+\begin{itemize}
+\item \verb|\tutor{}|\\
+	导师姓名。
+\item \verb|\titles{}|\\
+	导师职称，如教授、讲师。在承诺书中也会用到。
+\end{itemize}
+
+\subsection{原创性承诺书信息}
+原创性承诺书中用到了上面的论文（设计）题目，学生姓名、专业、学号，指导教师姓名、职称等信息，除此之外还需填写：
+\begin{itemize}
+\item \verb|\duration{}|\\
+	论文完成时间，如2012年5月1日～2013年4月1日。
+\item \verb|\remarkinfo{}|\\
+	承诺书中的备注信息。
+\end{itemize}\par
+承诺书中除此之外还有学生签名和时间，需要打印出来后手写。相应位置已经留空。
+
+
+\section{模版选项}
+模版选项为论文主文档，如示例文档中的CNUthesisX.tex中第一行使用的参数选项，如：\\
+\begin{tabular}{l>{\columncolor{bkcolor1}}l}
+&
+\verb|\documentclass[twoside,typesetinfo]{CNUthesisX}|\\
+\end{tabular}\\
+中使用了twoside和typesetinfo两个选项。如果需要某个选项的效果，直接添加选项即可。\par
+
+
+CNUthesisX 文档类定义的选项如下:
+\begin{itemize}
+\item \verb|typesetinfo|\\
+	在学位论文封面的背面打印宏包信息。
+\end{itemize}
+
+除上面选项外，\texttt{ctexbook}~文档类定义的选项也可使用。如：
+\begin{itemize}
+\item \verb|oneside|\\
+	单面打印。
+\item \verb|twoside|\\
+	双面打印。会在封面、中英文摘要、目录、图表目录等单页或奇数页结束的页面后面插入空白页，以使打印出来后下一部分的页面从奇数页（正面）开始。
+	学校要求论文页码设置在页面外侧，此时奇数页页码在右下角，偶数页页码在左下角。
+\item \verb|openright|\\
+	页面右开。在使用\verb|\twoside|时，如正常图书效果，章节在奇数页（一页纸的正面）开始，如果前一章为奇数页结束，会插入空白页。
+	\item \verb|openany|\\
+	在使用\verb|twoside|时，使用此选项，正文部分章节连续排列，新的章节内容可以从纸张反面开始，不会插入空白页。
+\end{itemize}
+
+模版的默认选项为\verb|twoside|，\verb|typesetinfo|，\verb|openright|。
+\section{命令说明}
+
+本节将对编写学位论文时使用的命令进行说明。如果不清楚具体用法，请参考本示例中chapter目录下的~\TeX~文件。
+
+\subsection{章节命令}
+
+宏包重新定义了章节命令，它们与普通~book~文档类中的章节命令
+用法相同。这些命令为：\verb|\chapter|、\verb|\section|、%
+\verb|\subsection|~和~\verb|\subsubsection|。开始一个新章节
+的命令为：\bkcommand{chapter\{章名\}}、%
+\bkcommand{section\{节名\}}~等。
+
+\subsection{摘要及关键词}
+
+cnabstract~环境和~abstract~环境分别用于生成中文摘要
+和英文摘要。这两个环境的用法都很简单：
+\vspace{1.5ex}
+
+\CTEXnoindent
+\begin{tabular}
+{p{4em}>{\columncolor{bkcolor1}}l>{\columncolor{bkcolor1}}l}
+&
+\begin{minipage}{0.35\textwidth}
+\begin{verbatim}
+\begin{cnabstract}
+中文摘要
+\end{cnabstract}
+\end{verbatim}
+\end{minipage}
+&
+\begin{minipage}{0.31\textwidth}
+\begin{verbatim}
+\begin{abstract}
+英文摘要
+\end{abstract}
+\end{verbatim}
+\end{minipage}
+\end{tabular}
+\CTEXindent
+\vspace{1.5ex}
+
+使用以上命令后，宏包会自动生成学位论文规定的摘要格式。为说明
+中英文关键词，可以分别使用命令~\verb|\cnkeywords|~和%
+~\verb|\keywords|。格式分别为： \vspace{1.5ex}
+
+\CTEXnoindent
+\begin{tabular}{l>{\columncolor{bkcolor1}}l}
+&
+\verb|\cnkeywords{中文关键词1；中文关键词2； ...}|\\
+和\hspace*{3em}\\
+&
+\verb|\keywords{英文关键词1;英文关键词2; ...}|
+\end{tabular}
+\CTEXindent
+其中，中文关键词词间用中文状态下“；”分隔，英文关键词词间用英文状态下“;”分隔
+\subsection{致谢}
+
+致谢使用~thankspage~环境生成。格式为：
+\vspace{1.5ex}
+
+\CTEXnoindent
+\begin{tabular}{p{4em}>{\columncolor{bkcolor1}}l}
+&
+\begin{minipage}{0.3\textwidth}
+\begin{verbatim}
+\begin{thankspage}
+感谢 ...
+\end{thankspage}
+\end{verbatim}
+\end{minipage}
+\end{tabular}
+\CTEXindent
+
+
+\subsection{参考文献}
+
+\texttt{CNUthesisX}~宏包已经集成了使用~bibtex~生成参考文献的
+功能，可以通过命令：\par
+\bkcommand{bibliography\{参考文献列表文件\}}%
+~使用\footnote{命令放置的位置请参
+考\ 第\ref{section:thesis_struct}节\ 中的相应介绍。}。\par
+当然，用户也可自己定义其它生成参考文献的方法。
+
+\subsection{论文结构}
+\label{section:thesis_struct}
+
+\texttt{CNUthesisX}~宏包使用命令~\verb|\frontmatter|、%
+\verb|\mainmatter|~和~\verb|\backmatter|~生成论文结构。
+利用这三个命令，学位论文的基本结构如下： \vspace{1.5ex}
+
+\CTEXnoindent
+\begin{tabular}{p{4em}>{\columncolor{bkcolor1}}l}
+&
+\begin{minipage}{0.7\textwidth}
+\begin{verbatim}
+\documentclass[文档类选项]{CNUthesisX}
+    全局声明、自己需要添加的宏包
+\begin{document}
+    \maketitle  % 制作封面
+    \makeauthorization  % 原创性声明/授权页
+\frontmatter
+    摘要
+    \tableofcontents	%目录
+    \listoffigures		%图目录（可选）
+    \listoftables 		%表目录（可选）
+\mainmatter
+    正文
+\backmatter
+    参考文献
+    \appendix
+    附录
+    致谢
+\end{document}
+\end{verbatim}
+\end{minipage}
+\end{tabular}
+\CTEXindent
+\vspace{1.5ex}
+
+
+\subsection{其它命令}
+
+首先简单说明一下图表的使用。表\ref{tab:CNUthesisX:Files}\ 和%
+\ 表\ref{tab:CNUthesisX:sample}\ 已经给出了使用表格的例子；下
+面的\ 图\ref{fig:logo}\ 给出了一个使用插图的例子（具体方法请
+参见源码）。
+
+\vspace{2ex}
+\begin{figure}[!h]
+\begin{center}
+ \includegraphics[width=0.6\textwidth]{cnulogoname.eps}
+  \caption{首都师范大学校徽、校名}
+  \label{fig:logo}
+\end{center}
+\end{figure}
+\vspace{-2ex}
+
+除以上介绍的命令，学位论文还可使用~C\TeX~、~CJK~提供的命令，此外，还可参
+考~\cite{TOetiker:lshort, wang:graph, lamport:LaTeX,
+DEknuth:TeXbook}~等的相关内容。
+
+\section{论文生成}
+
+建议使用~C\TeX~中文套装生成学位论文。C\TeX~中文套装可以
+从~\url{www.ctex.org}~免费下载，安装后不需配置就可使用。
+
+为从``\texttt{TEX}文件''得到``\texttt{PDF}文件''，只需执行两
+遍\footnote{编译两次则可以正常生成目录}~\texttt{XeLaTeX}~命令。如果论
+文使用~\texttt{bibtex}~生成参考文献，则为从``\texttt{TEX}文
+件''得到``\texttt{PDF}文件''需运行的命令序列为：\texttt{XeLaTeX,
+Bibtex}\texttt{, XeLaTeX, XeLaTeX}。\par
+为方便起见，模版目录下为Windows用户提供了一个批处理文件make.bat（可~右键-编辑~来查看其内容），直接双击运行即可自动编译生成文件。
+

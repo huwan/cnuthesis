@@ -1,0 +1,79 @@
+
+\chapter{\texttt{CNUthesis}~简介}
+
+\section{模版简介}
+
+\texttt{CNUthesis} 宏包是根据首都师范大学教务处发布的本科生毕业设计(论文)格式要求以及研究生院发布的首都师范大学硕士(博士)学位论文格式要求制作的。
+
+为了便于开发和维护，研究生、博士生的LaTeX 模板与本科生的学位论文模板分别独立开发。硕士/博士学位论文格式宏包使用名称\texttt{CNUthesis}（发布较早），本科论文格式模版使用名称\texttt{CNUthesisX}。
+
+\texttt{CNUthesis} 使用 XeLaTeX，方便字体设置。中文支持使用xeCJK包。模板生成的论文效果以及模版使用手册请见相应目录下的PDF格式文档。\par
+\vspace*{2em}
+本文档介绍适合于本科生毕业论文撰写的\LaTeX 模板。
+
+\section{模版获取}
+模版托管在Github上面，请访问模版主页：\href{https://github.com/mengyingchina/cnuthesis} {https://github.com/mengyingchina/cnuthesis}下载最新、完整的模板文件（包括本说明文档）。
+\section{包含的文件}
+
+\texttt{CNUthesisX}~宏包提供的学位论文模版共由~3~个文件组成，
+如\ 表\ref{tab:CNUthesisX:Files}\ 所示。
+
+\CTEXnoindent
+\begin{table}[!h]
+  \centering
+  \caption{\texttt{CNUthesisX}~学位论文模版包含的文件}\vspace*{-5pt}
+  \label{tab:CNUthesisX:Files}
+  \tabcolsep 10pt
+  {\rule{0.7\textwidth}{1.5pt}}
+  \begin{tabular*}{0.69\textwidth}{@{\quad}rl@{\quad}}
+    \hspace*{\stretch{1}}\textbf{文件名}\hspace*{\stretch{1}} &
+        \hspace*{\stretch{1}}\textbf{说明\quad}\hspace*{\stretch{1}} \\ \hline
+    \texttt{CNUthesisX.cls} & 主文件，定义了~\texttt{CNUthesisX}~文档类\\
+ 	\texttt{CNUthesisX.cfg} & 配置文件，用于用户配置文档类\\
+	\texttt{CNUthesisX.sty} & 宏包文件，用于用户添加专门使用的宏包
+  \end{tabular*}
+  {\rule{0.7\textwidth}{1.5pt}}
+\end{table}
+\CTEXindent
+
+使用~\texttt{CNUthesisX}~文档类时，首先要
+将~\texttt{CNUthesisX.cfg}~文件中的内容配置好（具体方法
+见\ 第\ref{section:cfg}节），按自己需要添加论文中需要专门使用的宏包到~\texttt{CNUthesisX.sty}~文件中，然后将以上三个文件复制
+到~\texttt{TEX}~文件所在目录即可。\vspace{1ex}
+
+除此之外，宏包还给出了一组文件作为使用~\texttt{CNUthesisX}~学
+位论文模版的示例（文件列表见\ 表\ref{tab:CNUthesisX:sample}）。
+
+    \begin{longtable}[c]{lp{8cm}}
+  \caption{\texttt{CNUthesisX}~ 模版示例文件}
+  \label{tab:CNUthesisX:sample}\\
+      \toprule[1.5pt]
+      {\heiti 文件名} & {\heiti 描述} \\
+      \midrule[1pt]
+		\endfirsthead%
+      \toprule[1.5pt]
+      {\heiti 文件名} & {\heiti 描述} \\
+      \midrule[1pt]
+		\endhead%
+		\hline
+		\multicolumn{2}{r}{续下页}%
+		\endfoot%
+		\endlastfoot%
+     	CNUthesisX.cls & 模板类文件\\
+	 	CNUthesisX.cfg & 模板配置文件\\
+		CNUthesisX.sty & 模板自定义宏包文件\\
+		\hline
+     	%bstutf8.bst   & 参考文献 Bibtex 样式文件。\\
+     	CNUthesisX.tex & 示例文档主文件\\
+		bib/ & 示例文档参考文献目录\\
+		chapter/ & 示例文档章节具体内容\\
+		figures/ & 示例文档图片路径\\
+		\textbf{CNUthesisX.pdf} & 示例文档（本文档）\\
+      \bottomrule[1.5pt]
+    \end{longtable}
+
+
+\section{问题反馈}
+
+如果您在使用过程中遇到困难，可以在相关的\LaTeX 论坛（如\href{http://bbs.ctex.org/forum.php}{CTEX 论坛}）寻求帮助或者与作者联系\footnote{Email:imengyingchina@gmail.com}。
+如果使用过程中遇到Bug，请提交到\href{https://github.com/mengyingchina/cnuthesis/issues}{模版主页 issues 部分}，并注明是本科论文模板的bug。
