@@ -9,7 +9,7 @@ LaTeX Thesis Template for Capital Normal University
 
 简介
 -------------
-CNUthesis 宏包是根据首都师范大学教务处发布的本科生毕业设计 (论文) [格式要求](http://zf.cnu.edu.cn/xytz/5896.htm)和[示例模版](http://202.204.208.76/jwc/detail.jsp?seq=2799&boardid=23108)以及研究生院发布的首都师范大学硕士 (博士) 学位论文[格式要求](http://grad.cnu.edu.cn/pages/info.php?id=77)及[示例模版](http://202.204.214.169/xwlw/)制作的。
+CNUthesis 宏包是根据首都师范大学教务处发布的本科生毕业设计 (论文) [格式要求](http://zf.cnu.edu.cn/xytz/5896.htm)和[示例模版](http://jwc.cnu.edu.cn/UpFiles/files/%E9%A6%96%E9%83%BD%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E6%9C%AC%E7%A7%91%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%EF%BC%88%E8%AE%BE%E8%AE%A1%EF%BC%89%E6%A8%A1%E6%9D%BF.doc)以及研究生院发布的首都师范大学硕士 (博士) 学位论文[格式要求](http://grad.cnu.edu.cn/xw/xwlw/5191.htm)及[示例模版](http://202.204.214.169/xwlw/)制作的。
 其中，本科生格式要求为教务处2012年12月5日发布的版本。
 
 为了便于开发和维护，研究生、博士生的 LaTeX 模板与本科生的学位论文模板分别独立开发。硕士/博士学位论文格式宏包使用名称 CNUthesis（发布较早），本科论文格式模版使用名称 CNUthesisX。
