@@ -1,4 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}[1994/12/01]
+﻿\NeedsTeXFormat{LaTeX2e}[1994/12/01]
 \ProvidesClass{CNUthesisX}[2013/04/12 CNU bachelor thesis document class, version 1.0.0 by WanHoo]
 
 %%打印排印信息： Typeset by \LaTeX{} with Package \texttt{CNUthesisX}}
@@ -16,7 +16,7 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amssymb}
 \RequirePackage[integrals]{wasysym}
-\RequirePackage[sort,numbers]{natbib}
+%\RequirePackage[sort,numbers]{natbib}
 \bibliographystyle{unsrtnat}%plainnat
 \RequirePackage{tabularx}
 \RequirePackage{longtable}
@@ -44,10 +44,12 @@
 %\RequirePackage[chapter,notlot,notlof,nottoc,notbib]{tocbibind}
 %\RequirePackage[subfigure]{tocloft}
 \RequirePackage{xpatch}%%
+\RequirePackage{mathtools} %公式编号样式
 %%enumitem宏包做一个首行空两格，第二行顶格的列表环境
 %%http://bbs.chinatex.org/forum.php?mod=viewthread&tid=7219
 \RequirePackage{enumitem}
 \setenumerate{fullwidth,itemindent=2em,itemsep=0ex,partopsep=0pt,parsep=0ex}
+
 \setmainfont[Ligatures=TeX]{Times New Roman}%%英文使用Times New Roman字体
 
 %% 使用华文中宋作为加粗宋体（PS：直接加粗太丑了……）
@@ -328,7 +330,7 @@
 
 %%定义破折号（中文特殊字符“长划线”）
 %\newcommand{\pozhehao}{\kern-0.5ex\rule[0.5ex]{1em}{1.1pt}\kern0.5ex}
-\newcommand{\pozhehao}{\kern0.3ex\rule[0.8ex]{2em}{0.1ex}\kern0.3ex}
+\newcommand{\pozhehao}{\kern0.3ex\rule[0.8ex]{2em}{0.2ex}\kern0.3ex}
 
 \renewcommand\maketitle{%
   \newpage
@@ -362,7 +364,7 @@
 		{专\hspace*{2em}业}&\underline{\makebox[10.5em][c]{\@major}}\tabularnewline
 		{年\hspace*{2em}级}&\underline{\makebox[10.5em][c]{\@grade}}\tabularnewline
 		{学\hspace*{2em}号}&\underline{\makebox[10.5em][c]{\@No}}\tabularnewline
-		{指导教师}&\underline{\makebox[10.5em][c]{\@tutor\quad\@titles}}\tabularnewline
+		{指导教师}&\underline{\makebox[10.5em][c]{\@tutor}}\tabularnewline
         {论文作者}&\underline{\makebox[10.5em][c]{\@author}}\tabularnewline
 	    {完成日期}&\underline{\makebox[10.5em][c]{\@cntime}}
       \end{tabular}}}%
@@ -403,7 +405,7 @@
  \begin{center}
 \sihao
 \begin{tabular*}{\textwidth}{*{28}{|c}|}\hline
- \multicolumn{8}{|c|}{论文（设计）题目} & \multicolumn{20}{c|}{\@title}\\ \hline
+ \multicolumn{8}{|c|}{论文（设计）题目} & \multicolumn{20}{c|}{\small\@title\@titletail\@subtitle}\\ \hline
 	 \multicolumn{6}{|c|}{学生姓名}&\multicolumn{5}{c|}{\@author}&\multicolumn{5}{c|}{专业}&\multicolumn{12}{c|}{\@major}\\\hline
  	\multicolumn{6}{|c|}{学号}&\multicolumn{5}{c|}{\@No}&\multicolumn{5}{c|}{完成时间}&\multicolumn{12}{c|}{{\@duration}}\\\hline
  \multicolumn{8}{|c|}{指导教师姓名} & \multicolumn{6}{c|}{\hspace{1em}\@tutor\hspace{1em}}&\multicolumn{5}{c|}{职$\hspace{2em}$称}&\multicolumn{9}{c|}{\@titles}\\ \hline
@@ -444,7 +446,7 @@
 \global\let\@keywords\@empty
 \global\let\@cnkeywords\@empty
 \newcommand{\abstractname}{Abstract}
-\newcommand{\cnabstractname}{中文提要}
+\newcommand{\cnabstractname}{摘要}
 \newcommand{\thankspagename}{致$\quad$谢}
  \newenvironment{cnabstract}{%
 \newpage
@@ -455,7 +457,7 @@
         \chapter*{~~~}
              \vspace{-1em}
         \begin{center}%
-		  \pdfbookmark[1]{中文提要}{cnabstract}
+		  \pdfbookmark[1]{摘要}{cnabstract}
           {\bfseries\heiti\xiaoerhao \cnabstractname\vspace{.5em}\vspace{\z@}}%
         \end{center}%
         \quotation
@@ -498,11 +500,16 @@
 \setfnsymbol{circled}
 \let\temp\footnote
 \renewcommand \footnote[1]{\temp{\xiaowuhao #1}}
-%Misc Customization
-\renewcommand{\theequation}{式 \arabic{chapter}-\arabic{equation}}
+
+%%公式编号样式
+\newtagform{buptNCequation}{\normalfont \normalcolor 式 }{} %\RequirePackage{mathtools} 
+\usetagform{buptNCequation} 
+\renewcommand{\theequation}{ (\arabic{chapter}-\arabic{equation})}
+%\renewcommand{\theequation}{式 \arabic{chapter}-\arabic{equation}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%参考文献设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\CTEXoptions[bibname={\xiaoerhao\heiti\textbf{参考文献}}]
-\renewcommand{\bibfont}{\wuhao}
+%\CTEXoptions[bibname={\xiaoerhao\heiti\textbf{参考文献}}]
+%\renewcommand{\bibfont}{\wuhao}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%致谢和附录设置%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%附录：
 %%致谢环境：
@@ -537,7 +544,7 @@
         \vspace{-1em}
         \begin{center}%
           \phantomsection
-          \addcontentsline{toc}{chapter}{\texorpdfstring{致$\quad$谢}{致谢}}
+          \addcontentsline{toc}{chapter}{\texorpdfstring{致\hspace{2em}谢}{致谢}}
           {\bfseries\heiti\xiaoerhao \thankspagename\vspace{-.5em}\vspace{\z@}}%
         \end{center}%
         \quotation
@@ -565,47 +572,3 @@ pdfstartview = FitH,}
                             \global\arrayrulewidth 1pt}%
                    \hline
                    \noalign{\global\arrayrulewidth\savedwidth}}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%code environment, from ctex-faq
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\definecolor{example@bkcolor}{gray}{.875}
-%
-\newwrite\example@out
-\def\example@start{%
-  \begingroup% Lets Keep the Changes Local
-  \@bsphack
-  \immediate\openout \example@out \jobname.exa
-  \let\do\@makeother\dospecials\catcode`\^^M\active
-  \def\verbatim@processline{%
-    \immediate\write\example@out{\the\verbatim@line}}%
-  \verbatim@start}
-\def\example@finish{\immediate\closeout\example@out\@esphack\endgroup}
-\def\example@code#1#2{%
-  \colorbox{#1}{%
-    \begin{minipage}[c]{#2}%
-      \small\verbatiminput{\jobname.exa}%
-    \end{minipage}%
-  }%
-}
-\def\example@output#1{%
-  \let\savefboxrule\fboxrule%
-  \let\savefboxsep\fboxsep%
-  \setlength{\fboxrule}{0.1pt}%
-  \setlength{\fboxsep}{3mm}%
-  \fbox{%
-    \begin{minipage}[c]{#1}%
-      \setlength{\fboxrule}{\savefboxrule}%
-      \setlength{\fboxsep}{\savefboxsep}%
-      \setlength{\parskip}{1ex plus 0.4ex minus 0.2ex}%
-      \begin{trivlist}\item\small\input{\jobname.exa}\end{trivlist}
-    \end{minipage}
-  }%
-}
-\newenvironment{code}%
-  {\example@start}%
-  {\example@finish%
-   \list{}{\itemindent-\leftmargin}\item\relax%
-   \makebox[\textwidth][c]{%
-     \example@code{example@bkcolor}{0.96\textwidth}%
-   }%
-   \endlist}

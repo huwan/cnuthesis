@@ -1,4 +1,4 @@
-%% BUPTThesis.bst
+﻿%% BUPTThesis.bst
 %%
 %% 北京邮电大学研究生学位论文参考文献 BibTeX 样式
 %% 

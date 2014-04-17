@@ -1,4 +1,4 @@
-%%
+﻿%%
 %% This is file `cnuthesis.cls',
 %% generated with the docstrip utility.
 %%
