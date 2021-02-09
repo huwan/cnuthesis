@@ -7,6 +7,8 @@ LaTeX Thesis Template for Capital Normal University
 
 -------------
 
+注：此模板已经年久失修，不建议使用。如果有硕士研究生同学需要模板，请移步[cnuthesis-master-2017](https://github.com/huwan/cnuthesis-master-2017)。这个相对较新，修复了一些问题。预祝顺利毕业。（更新时间：2021年02月09日）
+
 简介
 -------------
 CNUthesis 宏包是根据首都师范大学教务处发布的本科生毕业设计 (论文) [格式要求](http://zf.cnu.edu.cn/xytz/5896.htm)和[示例模版](http://jwc.cnu.edu.cn/UpFiles/files/%E9%A6%96%E9%83%BD%E5%B8%88%E8%8C%83%E5%A4%A7%E5%AD%A6%E6%9C%AC%E7%A7%91%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%EF%BC%88%E8%AE%BE%E8%AE%A1%EF%BC%89%E6%A8%A1%E6%9D%BF.doc)以及研究生院发布的首都师范大学硕士 (博士) 学位论文[格式要求](http://grad.cnu.edu.cn/xw/xwlw/5191.htm)及[示例模版](http://202.204.214.169/xwlw/)制作的。
